@@ -6,12 +6,12 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:25:23 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/06 01:44:16 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/11/10 00:12:22 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUFFERSIZE
-# define BUFFERSIZE 500
+# define BUFFER_SIZE 1
 #endif
 
 
