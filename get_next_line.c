@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:23:57 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/14 02:29:30 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/11/14 04:44:07 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,136 +15,61 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-int	ft_strlen(char *str)
-{
-	int	x;
-
-	x = 0;
-	if(!str)
-		return 0;
-	while (str[x] != '\0')
-		x++;
-	return (x);
-}
-char	*ft_strchr(char *s, int c)
-{
-	int	x;
-
-	x = 0;
-	if(!s)
-		return NULL;
-	while (s[x] != '\0')
-	{
-		if (s[x] == c)
-			return (s + x);
-		x++;
-	}
-	return (NULL);
-}
-
-char	*nwline(char *save)
-{
-	char *line;
-	int x = 0;
-	while(save[x] && save[x] != '\n')
-		x++;
-	if(save[x] == '\n')
-		x++;
-	line = malloc((x + 1)  * sizeof(char));
-	if(!line)
-		return NULL;
-	x = 0;
-	while(save[x] && save[x] != '\n')
-	{
-		line[x] = save[x];
-		x++;
-	}
-	if(save[x] == '\n')
-	{
-		line[x] = save[x];
-		x++; 
-	}
-	line[x] = '\0';
-	return line;
-}
-
-char	*cutline(char *save)
-{
-	char *cut;
-	int x = 0;
-	int y = 0;
-	while(save[x] && save[x] != '\n')
-		x++;
-	if(save[x] == '\n')
-		x++;
-	cut = malloc((ft_strlen(save) - x) + 1 * sizeof(char));
-	if(!cut)
-		return NULL;
-	while(save[x])
-		cut[y++] = save[x++];
-	cut[y] = '\0';
-	if(save)
-		free(save);
-	return cut;
-}
-
 char	*ft_strjoin(char *save, char *buf)
 {
-	char *p;
-	int x = 0;
-	int y = 0;
+	char	*p;
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
 	p = malloc((ft_strlen(save) + ft_strlen(buf) + 1) * sizeof(char));
-	if(!p)
-		return NULL;
-	if(save)
+	if (!p)
+		return (NULL);
+	if (save)
 	{
-		while(save[x])
+		while (save[x])
 		{
 		p[x] = save[x];
 		x++;
 		}
 	}
-	while(buf[y])
-		p[x++]= buf[y++];
+	while (buf[y])
+		p[x++] = buf[y++];
 	p[x] = '\0';
-	if(save)
+	if (save)
 		free(save);
-	return p;
+	return (p);
 }
 
 char	*get_next_line(int fd)
 {
-	static char *save;
-	char *buf;
-	char *line;
-	int x = 1;
-	if(fd < 0 || BUFFER_SIZE <= 0 || fd == 1 || fd == 2 )
-		return NULL;
+	static char	*save;
+	char		*buf;
+	ssize_t		x;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd == 1 || fd == 2)
+		return (NULL);
 	buf = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if(!buf)
 		return NULL;
-	while(!ft_strchr(save, '\n') && x != 0)
+	while (!ft_strchr(save, '\n'))
 	{
 		x = read(fd, buf, BUFFER_SIZE);
+		if (x <= 0)
+			break ;
 		buf[x] = '\0';
-		if(x < 0)
-		{
-			free(buf);
-			return 0;
-		}
 		save = ft_strjoin(save, buf);
 	}
 	free(buf);
-	if(ft_strlen(save) > 0)
+	if (ft_strlen(save) > 0 && x >= 0)
 	{
-	line = nwline(save);
-	save = cutline(save);
-	return line;
+		buf = nwline(save);
+		save = cutline(save);
+		return (buf);
 	}
-	if(save)
-		free(save);
-	save = NULL;
-	return NULL;
+	free(save);
+	return (save = NULL);
 }
 
 // int main()
