@@ -6,12 +6,12 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:25:23 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/10 00:12:22 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/11/14 02:29:41 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUFFERSIZE
-# define BUFFER_SIZE 1
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 6000
 #endif
 
 
@@ -21,7 +21,15 @@
 # define GET_NEXT_LINE_H
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
 
 char	*get_next_line(int fd);
+char	*nwline(char *p);
+char	*cutline(char *p);
+char	*ft_strchr(char *s, int c);
+int		ft_strlen(char *p);
+char	*ft_strjoin(char  *save, char  *buf);
 
 #endif
