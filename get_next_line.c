@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:23:57 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/15 23:57:04 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:28:06 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*get_next_line(int fd)
 		x = read(fd, buf, BUFFER_SIZE);
 		if (x <= 0)
 			break ;
+		buf[count] = 0;
 		save = ft_strjoin(save, buf, x);
 	}
 	free(buf);

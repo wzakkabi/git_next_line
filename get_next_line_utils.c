@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 03:41:54 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/15 23:57:11 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:27:59 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_strjoin(char *save, char *buf, int count)
 	int		x;
 	int		y;
 
-	buf[count] = 0;
 	x = 0;
 	y = 0;
 	p = malloc((ft_strlen(save) + ft_strlen(buf) + 1) * sizeof(char));
