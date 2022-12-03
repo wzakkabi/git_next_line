@@ -6,11 +6,39 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 06:07:25 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/14 06:11:26 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2022/11/15 23:52:22 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+char	*ft_strjoin(char *save, char *buf, int count)
+{
+	char	*p;
+	int		x;
+	int		y;
+
+	buf[count] = 0;
+	x = 0;
+	y = 0;
+	p = malloc((ft_strlen(save) + ft_strlen(buf) + 1) * sizeof(char));
+	if (!p)
+		return (NULL);
+	if (save)
+	{
+		while (save[x])
+		{
+		p[x] = save[x];
+		x++;
+		}
+	}
+	while (buf[y])
+		p[x++] = buf[y++];
+	p[x] = '\0';
+	if (save)
+		free(save);
+	return (p);
+}
 
 int	ft_strlen(char *str)
 {
