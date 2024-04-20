@@ -14,7 +14,7 @@ To use `git_next_line` in your project, follow these steps:
 
 1. Clone the repository to your local machine:
 ```shell
-   git clone https://github.com/wzakkabi/git_next_line.git
+git clone https://github.com/wzakkabi/git_next_line.git && cd git_next_line
 ```
 3. Compile the source files:
 ```shell
@@ -28,14 +28,16 @@ Here's an example demonstrating the usage of `git_next_line`:
 
 ```c
 #include "get_next_line.h"
+#include <stdio.h>
 #include <fcntl.h>
 
 int main() {
  int fd = open("example.txt", O_RDONLY);
- char *line;
- while (get_next_line(fd, &line) > 0) {
-     printf("%s\n", line);
+ char * line = get_next_line(fd);
+ while (line != NULL) {
+     printf("%s", line);
      free(line);
+     line = get_next_line(fd);
  }
  close(fd);
  return 0;
