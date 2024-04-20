@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 06:07:16 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/15 23:59:21 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2024/04/20 19:27:28 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);

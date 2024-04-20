@@ -6,7 +6,7 @@
 /*   By: wzakkabi <wzakkabi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:25:23 by wzakkabi          #+#    #+#             */
-/*   Updated: 2022/11/15 23:59:32 by wzakkabi         ###   ########.fr       */
+/*   Updated: 2024/04/20 19:24:03 by wzakkabi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000000000
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
@@ -26,6 +26,6 @@ char	*nwline(char *p);
 char	*cutline(char *p);
 char	*ft_strchr(char *s, int c);
 int		ft_strlen(char *p);
-char	*ft_strjoin(char *save, char *buf, int count);
+char	*ft_strjoin(char *save, char *buf);
 
 #endif
