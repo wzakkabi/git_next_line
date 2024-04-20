@@ -13,13 +13,14 @@
 To use `git_next_line` in your project, follow these steps:
 
 1. Clone the repository to your local machine:
-git clone https://github.com/wzakkabi/git_next_line.git
-
-2. Compile the source files:
-
+```shell
+   git clone https://github.com/wzakkabi/git_next_line.git
+```
+3. Compile the source files:
+```shell
 gcc -Wall -Wextra -Werror -D BUFFER_SIZE=32 get_next_line.c get_next_line_utils.c main.c -o gnl
-
-3. Run the executable:
+```
+5. Run the executable:
 ./gnl
 
 ## Usage
